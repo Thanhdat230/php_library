@@ -37,11 +37,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="col-md-12">
                 <div class="mt-5 mb-3 clearfix">
                     <h2 class="pull-left">Specialized management</h2>
-                    <a href="create_cn.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Specialized</a>
+                    <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Specialized</a>
                 </div>
                 <?php
                 //Include config file
-                require_once "config.php";
+                require_once "../config.php";
 
                 //Attempt select query execution
                 $sql = "SELECT * FROM chuyennganh";
@@ -89,7 +89,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <p>
-        <a href="welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
+        <a href="../welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
     </p>
 </div>
 </body>

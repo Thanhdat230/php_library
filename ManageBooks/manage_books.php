@@ -99,7 +99,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <p>
-        <a href="welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
+        <a href="../welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
     </p>
 </div>
 </body>

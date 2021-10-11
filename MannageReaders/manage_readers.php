@@ -37,11 +37,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="col-md-12">
                 <div class="mt-5 mb-3 clearfix">
                     <h2 class="pull-left">Readers Details</h2>
-                    <a href="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Readers</a>
+                    <a href="create.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Readers</a>
                 </div>
                 <?php
                 //Include config file
-                require_once "config.php";
+                require_once "../config.php";
 
                 //Attempt select query execution
                 $sql = "SELECT * FROM bandoc";
@@ -63,7 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             echo "<tr>";
                             echo "<td>" .$row['bd_id'] ."</td>";
                             echo "<td>" .$row['mabd'] ."</td>";
-                            echo "<td>" .$row['ten_id'] ."</td>";
+                            echo "<td>" .$row['tenbd'] ."</td>";
                             echo "<td>" .$row['diachi'] ."</td>";
                             echo "<td>";
                             echo '<a href="read.php?id=' .$row['bd_id'].'" class="mr-3" title="View Record" 
@@ -93,7 +93,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <p>
-        <a href="welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
+        <a href="../welcome.php" class="btn btn-danger ml-3">Return Welcome Page</a>
     </p>
 </div>
 </body>

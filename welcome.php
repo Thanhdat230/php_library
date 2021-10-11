@@ -22,10 +22,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ){
 <p>
     <a href="reset_password.php" class="btn btn-warning">Reset Your Password</a>
     <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    <a href="manage_books.php" class="btn btn-primary">Manage books</a>
+    <a href="ManageBooks/manage_books.php" class="btn btn-primary">Manage books</a>
     <a href="" class="btn btn-primary">Borrow books</a>
-    <a href="mange_readers.php" class="btn btn-primary">Manage readers</a>
-    <a href="specialized.php" class="btn btn-primary">Specialized management</a>
+    <a href="MannageReaders/manage_readers.php" class="btn btn-primary">Manage readers</a>
+    <a href="Specialized/specialized.php" class="btn btn-primary">Specialized management</a>
 </p>
 </body>
 </html>

@@ -7,27 +7,27 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !==true) {
 ?>
 <?php
 //include config file
-require_once "config.php";
+require_once "../config.php";
 // macn : specializedCode tencn: specializedName
-$specializedCode = $specializedName = "";
-$specializedCode_err = $specializedName_err = "";
+$macn = $tencn = "";
+$macn_err = $tencn_err = "";
 //processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // validate specialized code
     if(empty(trim($_POST["macn"]))){
-        $specializedCode="Please enter a specialized code.";
-    }elseif (strlen(trim($_POST["macn"])) === 5){
-        $specializedCode_err="Please enter a valid specialized code.";
+        $macn_err="Please enter a specialized code.";
+    }elseif (strlen(trim($_POST["macn"])) !== 5){
+        $macn_err="Please enter a valid specialized code.";
     }else{
-        $specializedCode = trim($_POST["macn"]);
+        $macn = trim($_POST["macn"]);
     }
 
     //validate specializedName
     if(empty(trim($_POST["tencn"]))) {
-        $specializedName_err = "Please enter a specialized name.";
+        $tencn_err = "Please enter a specialized name.";
     }else {
-        $specializedName =  trim($_POST["tencn"]);
+        $tencn =  trim($_POST["tencn"]);
     }
 
 
@@ -40,8 +40,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             //bind variables to the prepared statement as parameters
             $stmt->bind_param("ss",$param_macn,$param_tencn);
             //set parameters
-            $param_macn = $specializedCode;
-            $param_tencn = $specializedName;
+            $param_macn = $macn;
+            $param_tencn = $tencn;
 
             //attempt to execute the prepared statement
             if($stmt->execute()){
@@ -88,16 +88,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="form-group">
                         <label for="#">Specialized code</label>
                         <input type="text" name="macn" class="form-control
-                            <?php echo (!empty($specializedCode_err)) ? 'is-invalid' : '';?>"
-                               value="<?php echo $specializedCode;?>">
-                        <span class="invalid-feedback"><?php echo $specializedCode_err;?></span>
+                            <?php echo (!empty($macn_err)) ? 'is-invalid' : '';?>"
+                               value="<?php echo $macn;?>">
+                        <span class="invalid-feedback"><?php echo $macn_err;?></span>
                     </div>
                     <div class="form-group">
                         <label for="#">Specialized name</label>
                         <textarea name="tencn" class="form-control
-                              <?php echo (!empty($specializedName_err)) ? 'is-invalid' : '';?>"
-                                  value="<?php echo $specializedName;?>"></textarea>
-                        <span class="invalid-feedback"><?php echo $specializedName_err;?></span>
+                              <?php echo (!empty($tencn_err)) ? 'is-invalid' : '';?>"
+                                  value="<?php echo $tencn;?>"></textarea>
+                        <span class="invalid-feedback"><?php echo $tencn_err;?></span>
                     </div>
                     <input type="submit" class="btn btn-primary" value="Submit">
                     <a href="specialized.php" class="btn btn-secondary m1-2">Cancel</a>
